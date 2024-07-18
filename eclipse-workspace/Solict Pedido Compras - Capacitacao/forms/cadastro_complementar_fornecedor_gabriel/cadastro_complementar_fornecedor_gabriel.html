@@ -1,0 +1,79 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="cadastro_complementar_fornecedor_gabriel.js"></script>
+    <link rel="stylesheet" href="cadastro_complementar_fornecedor_gabriel.css">
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+
+            <div class="page-header">
+                <img src="/style-guide/images/illustrations/layout-group.svg" title="layout-group">
+                <div class="title-content">
+                    <h1 class="title">Capacitação - Cadastro complementar de fornecedor</h1>
+                </div>
+            </div>
+
+            <!-- DADOS Cadastrais -->
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Dados cadastrais do cliente
+                    </h3>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="codigo">Código</label>
+                            <input type="text" name="codigo" id="codigo" class="form-control" data-fluig-required="true"
+                                data-fluig-write="0,4" data-fluig-state-valid="0,4">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="empresa">Empresa</label>
+                            <input type="text" name="empresa" id="empresa" class="form-control"
+                                data-fluig-required="true" data-fluig-write="0,4" data-fluig-state-valid="0,4">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="filial">Filial</label>
+                            <input type="text" name="filial" id="filial" class="form-control" data-fluig-required="true"
+                                data-fluig-write="0,4" data-fluig-state-valid="0,4">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="cnpj">CNPJ</label>
+                            <input type="text" name="cnpj" id="cnpj" class="form-control" data-fluig-required="true"
+                                data-fluig-write="0,4" data-fluig-state-valid="0,4" onchange="consultaCNPJ()">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="uf">UF</label>
+                            <input type="text" name="uf" id="uf" class="form-control" data-fluig-required="true">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="municipio">Município</label>
+                            <input type="text" name="municipio" id="municipio" class="form-control"
+                                data-fluig-required="true">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

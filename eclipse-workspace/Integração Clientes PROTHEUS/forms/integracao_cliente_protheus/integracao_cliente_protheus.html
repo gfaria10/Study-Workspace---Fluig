@@ -1,0 +1,94 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="integracao_cliente_protheus.js" charset="utf-8"></script>
+    <link type="text/css" rel="stylesheet" href="integracao_cliente_protheus.css" />
+</head>
+
+    <body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h1><i class="fluigicon fluigicon-add-test icon-xl" aria-hidden="true"></i>
+                        Capacitação - Cadastro CLIENTE (Integração)
+                    </h1>
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="grupos">Selecione o grupo</label>
+                            <input type="zoom" id="grupos" name="grupos" data-zoom="{
+                                'displayKey':'groupId',
+                                'datasetId':'colleagueGroup',
+                                'maximumSelectionLength':'1',
+                                'placeholder':'Selecione o grupo correspodente ao cliente',
+                                'fields':[
+                                    {
+                                        'field':'groupId',
+                                        'label':'Grupo'
+                                    }
+                                ]
+                            }" />
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label for="usuarioCLiente">Selecione o cliente</label>
+                            <input type="zoom" id="usuarioCLiente" name="usuarioCLiente" data-zoom="{
+                                'displayKey':'colleagueId',
+                                'datasetId':'colleagueGroup',
+                                'maximumSelectionLength':'1',
+                                'placeholder':'Selecione o cliente a ser cadastrado',
+                                'fields':[
+                                    {
+                                        'field':'colleagueId',
+                                        'label':'Usuário'
+                                    }
+                                ]
+                            }" />
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="nome">Nome do Cliente</label>
+                            <input type="text" name="nome" id="nome" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="estado">Estado</label>
+                            <input type="text" name="estado" id="estado" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="cidade" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="tipoCliente">Tipo do Cliente</label>
+                            <input type="text" name="tipoCliente" id="tipoCliente" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="cadastro-protheus">
+                        <button type="button" class="btn btn-success btn-lg btn-protheus">Cadastrar no PROTHEUS</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

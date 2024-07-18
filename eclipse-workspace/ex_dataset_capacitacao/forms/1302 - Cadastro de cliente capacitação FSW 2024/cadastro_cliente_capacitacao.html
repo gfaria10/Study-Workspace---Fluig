@@ -1,0 +1,147 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="cadastro_cliente_capacitacao.js"></script>
+    <link type="text/css" rel="stylesheet" href="cadastro_cliente_capacitacao.css"/>
+</head>
+<body>
+<div class="fluig-style-guide">
+<form name="form" role="form">
+
+<div class="page-header">
+    <img src="logo_fluig.png" alt="" srcset="" class="logo">
+    <div class="title-content col-md-7">
+        <h2 class="title">Cadastro de Clientes</h2>
+    </div>
+</div>
+<div class="panel">
+    <!--Atributos data-toggle são usados em HTML para controlar o comportamento de elementos interativos em uma página da web. Eles são especialmente comuns em frameworks como Bootstrap, jQuery e outros, onde são utilizados para definir interações dinâmicas sem a necessidade de escrever código JavaScript separado.-->
+    <ul class="nav nav-tabs" id="tabs_list" role="tablist" >
+        <li class="active"><a href="#dadosCadastrais" role="tab"         data-toggle="tab">Dados cadastrais</a></li>
+        <li><a href="#financeiro"                     role="tab"         data-toggle="tab">Financeiro</a></li>
+        <li><a href="#contabilidade"                  role="tab"         data-toggle="tab">Contabilidade</a></li>
+    </ul>
+    <!--- Criação de um painel-->
+    <div class="tab-content fs-sm-padding" >
+        <div class="tab-pane fade in active" style=" margin-bottom: 5px;" id="dadosCadastrais">
+            <!-- Defino uma nova linha envolvendo para organizar as minhas colunas dentro dentro do container ou Painel-->
+            <div class="row">
+                <!-- Define o tamanho da largura em uma grade do container -->
+                <!-- No Bootstrap e no Fluig Style Guide, um elemento HTML pode ter sua largura definida entre 1 e 12 colunas. -->
+                <div class="col-md-3">
+                    <!-- Utilização da classe Form-group do framework Bootstrap para agrupar os elementos, controlando assim o layout e o espaçamento entre os elementos-->
+                    <div class="form-group" id="group_tipo_solicitacao">
+                        <label class="control-label">Tipo de Solicitação</label>
+                        <!--Ao utilizar a classe form-control permite tornar mais agradavel esteticamente a visualização do campo-->
+                        <select id="tipo_solicitacao" onchange="validaTipoSolicitacao()" name="tipo_solicitacao" class="form-control" >
+                            <option value ="1">Criação</option>
+                            <option value ="2">Alteração Cadastro</option>
+                        </select>
+                        
+                    </div>
+                </div>
+                 <!--Definindo o meu campo zoom-->
+                <div class="col-md-3 "  id="empresa_cadastrada" style="display: none; ">
+                    <label class="control-label">Código:</label>
+                    <input type="zoom" id="codigoAlteracao" name="codigoAlteracao" class="form-control zoom" 
+                        data-zoom="{
+                            'displayKey':'codigo',
+                            'datasetId':'cadastro_cliente_capacitacao',
+                            'fields':[
+                                {
+                                  'field':'codigo',
+                                  'label':'Codigo'
+                                },{
+                                  'field':'empresa',
+                                  'label':'Empresa'
+                                },{
+                                    'field':'filial',
+                                    'label':'Filial',
+                                    'visible':'false'
+                                }
+                            ]
+                         }"
+                    />
+                </div>
+                <div class="col-md-3" id="empresa_nova">
+                    <div class="form-group">
+                        <label class="control-label">Código:</label>
+                        <input type="text" id="codigo" name="codigo"  class="form-control dadosCadastrais">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Empresa</label>
+                        <input type="text" id="empresa" name="empresa" class="form-control dadosCadastrais">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Filial</label>
+                        <input type="text" id="filial" name="filial"  class="form-control dadosCadastrais">
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="tab-pane fade" id="financeiro">
+            <!-- Defino uma nova linha envolvendo para organizar as minhas colunas dentro dentro do container ou Painel-->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Condição de pagamento</label>
+                        <input type="text" id="condicaoPagamento" name="condicaoPagamento" class="form-control financeiro">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group" >
+                        <label class="control-label">Vencimento do crédito</label>
+                        <input type="date" id="vencimento" name="vencimento" class="form-control financeiro">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group" >
+                        <label class="control-label">valor acumulado de vendas no ano</label>
+                        <input type="text" id="valorAcumlado" name="valorAcumlado"  class="form-control financeiro">
+                    </div>
+                </div>
+            </div>   
+        </div> 
+        <div class="tab-pane fade" style=" margin-bottom: 5px;" id="contabilidade">
+            <!-- Defino uma nova linha envolvendo para organizar as minhas colunas dentro dentro do container ou Painel-->
+            <div class="row">
+                <div class="col-md-3 "  >
+                    <label class="control-label">Código:</label>
+                    <input type="zoom" id="codigoContaContabil" name="codigoContaContabil" class="form-control zoom" 
+                        data-zoom="{
+                            'displayKey':'Codigo',
+                            'datasetId':'cadastro_conta_contabil_fsw',
+                            'fields':[
+                                {
+                                  'field':'Codigo',
+                                  'label':'Codigo'
+                                },{
+                                  'field':'Descricao'
+                                  'label':'Descricao'
+                                }
+                            ]
+                         }"
+                    />
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Conta contabil</label>
+                        <input type="text" id="contaContabil" name="contaContabil" class="form-control contabilidade" readonly>
+                    </div>
+                </div>
+            </div>   
+        </div>     
+    </div>  
+</div>
+</form>
+</div>
+</body>
+</html>

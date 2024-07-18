@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Estudo LIB - PROTHEUS&apos; to &apos;Solict Pedido Vendas - LIB PROTHEUS&apos;" description="Rename resource &apos;Estudo LIB - PROTHEUS&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Estudo LIB - PROTHEUS" name="Solict Pedido Vendas - LIB PROTHEUS" stamp="1720196446058" updateReferences="true"/>
+</session>

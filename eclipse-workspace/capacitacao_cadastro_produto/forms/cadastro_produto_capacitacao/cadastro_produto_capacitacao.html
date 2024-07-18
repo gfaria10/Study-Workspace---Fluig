@@ -1,0 +1,237 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="cadastro_produto_capacitacao.js"></script>
+    <link type="text/css" rel="stylesheet" href="cadastro_produto_capacitacao.css">
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+
+            <div class="page-header">
+                <img src="/style-guide/images/illustrations/tasks.svg" title="tasks">
+                <div class="title-content">
+                    <h1 class="title">Capacitação Fluig - Cadastro de Produto</h1>
+                </div>
+            </div>
+
+            <div class="panel">
+
+                <!-- NAVBAR -->
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li class="active">
+                        <a href="#dadosCadastro" id="abaDadosCadastro" role="tab" data-toggle="tab">
+                            <i class="flaticon flaticon-toc icon-lg" aria-hidden="true"></i>
+                            Dados do Cadastro
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#dadosProduto" id="abaProduto" role="tab" data-toggle="tab">
+                            <i class="flaticon flaticon-product icon-lg" aria-hidden="true"></i>
+                            Produto
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#infosVenda" id="abaVenda" role="tab" data-toggle="tab">
+                            <i class="flaticon flaticon-monetization-on icon-lg" aria-hidden="true"></i>
+                            Informações sobre a Venda
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#aprovacao" id="abaAprovacao" role="tab" data-toggle="tab">
+                            <i class="flaticon flaticon-invoices-check icon-lg" aria-hidden="true"></i>
+                            Aprovação
+                        </a>
+                    </li>
+                </ul>
+                <!-- NAVBAR -->
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+                    <!-- DADOS DO CADASTRO -->
+                    <div class="tab-pane active" id="dadosCadastro">
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label for="solicitante">Solicitante</label>
+                                <input type="text" name="solicitante" id="solicitante" class="form-control camposCadastro">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="emailSolicitante">Email do Solicitante</label>
+                                <input type="text" name="emailSolicitante" id="emailSolicitante" class="form-control camposCadastro">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="cpf">CPF</label>
+                                <input type="text" name="cpf" id="cpf" class="form-control camposCadastro" mask="000.000.000-00">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label for="cep">CEP</label>
+                                <input type="text" name="cep" id="cep" class="form-control camposCEP camposCadastro"
+                                    onchange="consultaCEP()" mask="00000-000">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="municipio">Cidade</label>
+                                <input type="text" name="municipio" id="municipio" class="form-control camposCEP camposCadastro">
+                            </div>
+
+                            <div class="form-group col-md-1">
+                                <label for="uf">Estado</label>
+                                <input type="text" name="uf" id="uf" class="form-control camposCEP camposCadastro">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="logradouro">Logradouro</label>
+                                <input type="text" name="logradouro" id="logradouro" class="form-control camposCEP camposCadastro">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" name="bairro" id="bairro" class="form-control camposCEP camposCadastro">
+                            </div>
+
+                            <div class="form-group col-md-1">
+                                <label for="numero">Número</label>
+                                <input type="text" name="numero" id="numero" class="form-control camposCEP camposCadastro">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- DADOS DO CADASTRO -->
+
+                    <!-- PRODUTO -->
+                    <div class="tab-pane" id="dadosProduto">
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label for="protheusProduto">Selecione o produto cadastrado no PROTHEUS</label>
+                                <input class="camposProduto" type="zoom" id="protheusProduto" name="protheusProduto" data-zoom="{
+                                        'displayKey':'DESCRICAO',
+                                        'datasetId':'ds_protheus_gabriel',
+                                        'maximumSelectionLength':'1',
+                                        'placeholder':'Selecione o produto',
+                                        'fields':[
+                                            {
+                                                'field': 'DESCRICAO',
+                                                'label': 'Descrição do produto'
+                                            },
+                                            {
+                                                'field': 'CODIGO',
+                                                'label': 'Código do produto'
+                                            }
+                                        ]
+                                    }" />
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="codProduto">Código do Produto</label>
+                                <input type="text" name="codProduto" id="codProduto" class="form-control camposProduto">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="descProduto">Descrição do Produto</label>
+                                <input type="text" name="descProduto" id="descProduto" class="form-control camposProduto">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label for="fornecedorProduto">Fornecedor</label>
+                                <input type="text" name="fornecedorProduto" id="fornecedorProduto" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="categoriaProduto">Categoria do Produto</label>
+                                <input type="text" name="categoriaProduto" id="categoriaProduto" class="form-control camposProduto">
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="marcaProduto">Marca do Produto</label>
+                                <input type="text" name="marcaProduto" id="marcaProduto" class="form-control">
+                            </div>
+
+                            <div class="form-group col-md-1">
+                                <label for="quantidadeEstoque">Quantidade</label>
+                                <input type="number" name="quantidadeEstoque" id="quantidadeEstoque"
+                                    class="form-control camposProduto">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- PRODUTO -->
+
+                    <!-- INFORMAÇÕES SOBRE A VENDA -->
+                    <div class="tab-pane" id="infosVenda">
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label for="valorBase">Valor Base</label>
+                                <input type="text" name="valorBase" id="valorBase" class="form-control camposVenda"
+                                    mask="#00.000.000.000.000,00">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="valorVenda">Valor da Venda</label>
+                                <input type="text" name="valorVenda" id="valorVenda" class="form-control camposVenda"
+                                    mask="#00.000.000.000.000,00">
+                            </div>
+                            
+                            <div class="form-group col-md-3">
+                                <label for="codigoBarras">Código de Barras</label>
+                                <input type="text" name="codigoBarras" id="codigoBarras" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- INFORMAÇÕES SOBRE A VENDA -->
+
+                    <!-- APROVAÇÃO -->
+                    <div class="tab-pane" id="aprovacao">
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label for="aprova">Aprova?</label>
+                                <select name="aprova" id="aprova" class="form-control camposAprovacao">
+                                    <option value="sim">Sim</option>
+                                    <option value="nao">Não</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="dtAprovacao">Data da Aprovação</label>
+                                <input type="date" name="dtAprovacao" id="dtAprovacao" class="form-control camposAprovacao">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="motivo">Motivo</label>
+                                <textarea class="form-control fs-no-resize camposAprovacao" name="motivo" id="motivo" rows="6"
+                                    placeholder="Escreva o motivo..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- APROVAÇÃO -->
+
+                </div>
+                <!-- Tab panes -->
+
+            </div>
+            <!-- Panel -->
+        </form>
+    </div>
+</body>
+
+
+
+</html>

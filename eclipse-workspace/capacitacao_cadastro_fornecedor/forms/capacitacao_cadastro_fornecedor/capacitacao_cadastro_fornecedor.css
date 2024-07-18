@@ -1,0 +1,45 @@
+/* Definir valores Globais*/
+:root{
+    --cor_fundo:#fbfdff;
+    --cor_cabecalho: #70808e;
+    --cor_titulo: #444444;
+}
+
+
+body{
+    background: var(--cor_fundo);
+}
+
+.page-header{
+    box-shadow: 0 1px 8px 12px rgba(0, 0, 0, .03), 0 2px 3px 0 rgba(0, 0, 0, .06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  	background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%) !important;
+    padding: 10px;
+    height: 110px;
+    border-radius: 7px 7px 7px 7px ;
+}
+
+/* Logotipo */
+.logo{
+    width: 80px;
+}
+
+/* Título page-header */
+.title-content .title{
+    color: var(--cor_titulo);
+}
+
+.title-content{
+    padding: 40px;
+    padding-right: 350px;
+}
+
+.panel{
+    box-shadow: 0 1px 8px 12px rgba(0, 0, 0, .03), 0 2px 3px 0 rgba(0, 0, 0, .06);
+}
+
+.fluig-style-guide .nav-tabs>li.active>a, .fluig-style-guide .nav-tabs>li.active>a:focus, .fluig-style-guide .nav-tabs>li.active>a:hover{
+	border-color: #10554d !important;
+}

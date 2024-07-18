@@ -1,0 +1,340 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="FLUIGIP.js"></script>
+    <script type="text/javascript" src="capacitacao_lib_int_protheus.js"></script>
+    <script type="text/javascript" src="capacitacao_lib_int_protheus_zoom.js"></script>
+    <link rel="stylesheet" href="capacitacao_lib_int_protheus.css">
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+
+            <div class="page-header">
+                <img src="/style-guide/images/illustrations/browser-code.svg" title="code">
+                <div class="title-content">
+
+                    <h1 class="title">Capacitação - Slct. Pedido Vendas (LIB/PROTHEUS)</h1>
+                </div>
+            </div>
+
+            <!-- NAVBAR -->
+            <ul class="nav nav-tabs clearfix" role="tablist">
+                <li class="active">
+                    <a href="#dadosGerais" id="abaDadosGerais" role="tab" data-toggle="tab">
+                        <i class="fluigicon fluigicon-file icon-lg" aria-hidden="true"></i>
+                        Dados Gerais
+                    </a>
+                </li>
+                <li>
+                    <a href="#aprovacao" id="abaAprovacao" role="tab" data-toggle="tab" data-fluig-state-hide="0,4">
+                        <i class="fluigicon fluigicon-checked icon-lg" aria-hidden="true"></i>
+                        Aprovação
+                    </a>
+                </li>
+            </ul>
+            <!-- NAVBAR -->
+
+            <!-- DADOS GERAIS -->
+            <div class="tab-pane active" id="dadosGerais">
+
+                <!-- COLLAPSE: Dados do solicitante -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a class="collapse-icon" data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseDadosSolicitante">
+                                Dados do Solicitante
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="panel-collapse collapse in" id="collapseDadosSolicitante">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="dtSolicitacao">Data da Solicitação</label>
+                                    <input type="text" name="dtSolicitacao" id="dtSolicitacao" class="form-control"
+                                        data-fluig-required="true">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="funcionario">Funcionário</label>
+                                    <input type="text" name="funcionario" id="funcionario" class="form-control"
+                                        data-fluig-required="true">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="emailFuncionario">Email do Funcionário</label>
+                                    <input type="text" name="emailFuncionario" id="emailFuncionario"
+                                        class="form-control" data-fluig-required="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLLAPSE: Dados do solicitante -->
+
+                <!-- COLLAPSE: Dados do Cliente -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseCliente">
+                                Dados do Cliente
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="panel-collapse collapse in" id="collapseCliente">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="codCliente">Código do Cliente</label>
+                                    <div class="input-group">
+                                        <input name="codCliente" id="codCliente" type="text"
+                                            class="form-control zoom-tdi" data-fluig-required="true"
+                                            data-fluig-write="0,4" data-fluig-state-valid="0,4">
+                                        <div class="input-group-addon" style="cursor:pointer;"
+                                            onclick="javascript:zoomClientes(this)">
+                                            <span class="fluigicon fluigicon-zoom-in fluigicon-sm"> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="nomeCliente">Nome Cliente</label>
+                                    <input type="text" name="nomeCliente" id="nomeCliente" class="form-control"
+                                        data-fluig-required="true">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="cnpjCliente">CNPJ</label>
+                                    <input type="text" name="cnpjCliente" id="cnpjCliente" class="form-control"
+                                        data-fluig-required="true">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="ufCliente">UF</label>
+                                    <input type="text" name="ufCliente" id="ufCliente" class="form-control"
+                                        data-fluig-required="true">
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="municipioCliente">Município</label>
+                                    <input type="text" name="municipioCliente" id="municipioCliente"
+                                        class="form-control" data-fluig-required="true">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 d-flex align-items-end">
+                                    <button type="button" class="btn btn-info" onclick="open_doc_ged('580')">+ Cadastrar
+                                        cliente
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLLAPSE: Dados do Cliente -->
+
+                <!-- COLLAPSE: Produtos -->
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseProduto">
+                                Produtos
+                            </a>
+                        </h3>
+                    </div>
+
+                    <div class="panel-collapse collapse in" id="collapseProduto">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-field table-responsive">
+
+                                        <!-- Tabela - PAI X FILHO -->
+                                        <table class="table" cellspacing="0" tablename="tabelaProdutos"
+                                            id="tabelaProdutos" nodeletebutton="true" noaddbutton="true">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Código</th>
+                                                    <th>Descrição</th>
+                                                    <th>UM</th>
+                                                    <th>Tipo</th>
+                                                    <th>Qtd</th>
+                                                    <th>Valor(R$)</th>
+                                                    <th>Total(R$)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <div class="form-group row botoesTable">
+                                                    <!-- Botão de add item -->
+                                                    <button type="button" class="btn btn-success" name="inputAdicionar"
+                                                        id="inputAdicionar"
+                                                        onclick="addItem('tabelaProdutos')"><strong>+</strong>
+                                                        Adicionar</button>
+                                                    <!-- Botão de add item -->
+
+                                                    <!-- Botão de limpar todos os itens -->
+                                                    <button type="button" class="btn btn-danger" name="inputRemoverTudo"
+                                                        id="inputRemoverTudo" onclick="clearItens('tabelaProdutos')">
+                                                        <i class="flaticon flaticon-trash icon-sm"
+                                                            aria-hidden="true"></i>
+                                                        Remover tudo</button>
+                                                </div>
+                                                <!-- Botão de limpar todos os itens -->
+
+                                                <tr>
+                                                    <!-- Lixeira de exclusão de linha -->
+                                                    <td class="col-md-1" data-fluig-required="true">
+                                                        <i class="flaticon flaticon-trash icon-lg" aria-hidden="true"
+                                                            onclick="fnWdkRemoveChild(this)"></i>
+                                                    </td>
+                                                    <!-- Lixeira de exclusão de linha -->
+
+                                                    <td class="col-md-3 col-sm-3">
+                                                        <div class="form-group">
+                                                            <div class="input-group">
+                                                                <input type="text" id="codProd" name="codProd"
+                                                                    class="form-control zoom-tdi"
+                                                                    data-fluig-required="true"
+                                                                    data-fluig-state-valid="0,4" />
+                                                                <div class="input-group-addon" style="cursor:pointer;"
+                                                                    onclick="zoomProduto(this)">
+                                                                    <span
+                                                                        class="fluigicon fluigicon-zoom-in fluigicon-sm">
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="col-md-2 col-sm-2">
+                                                        <div class="form-group">
+                                                            <input type="text" name="descricaoProd" id="descricaoProd"
+                                                                class="form-control">
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="col-md-1 col-sm-1">
+                                                        <div class="form-group">
+                                                            <input type="text" name="UM" id="UM" class="form-control">
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="col-md-1 col-sm-1">
+                                                        <div class="form-group">
+                                                            <input type="tipoProd" name="tipoProd" class="form-control">
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="col-md-1 col-sm-1">
+                                                        <div class="form-group">
+                                                            <input type="number" name="qtdProd" id="qtdProd"
+                                                                class="form-control" data-fluig-required="true"
+                                                                data-fluig-write="0,4" data-fluig-state-valid="0,4"
+                                                                onchange="calculaValores(this)">
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="col-md-2 col-sm-2">
+                                                        <div class="form-group">
+                                                            <input type="text" name="valorProd" id="valorProd"
+                                                                class="form-control" data-fluig-required="true"
+                                                                data-fluig-write="0,4" data-fluig-state-valid="0,4"
+                                                                onchange="calculaValores(this)">
+                                                        </div>
+                                                    </td>
+
+                                                    <td class="col-md-2 col-sm-2">
+                                                        <div class="form-group">
+                                                            <input type="text" name="valorTotalLinha"
+                                                                id="valorTotalLinha" class="form-control">
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Tabela - PAI X FILHO -->
+
+                                        <div class="form-group col-md-3">
+                                            <label for="valorTotal">Valor total(R$)</label>
+                                            <input type="text" name="valorTotal" id="valorTotal" class="form-control"
+                                                data-fluig-required="true">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLLAPSE: Produtos -->
+            </div>
+            <!-- DADOS GERAIS -->
+
+            <!-- APROVAÇÃO -->
+            <div class="tab-pane" id="aprovacao">
+
+                <!-- COLLAPSE: APROVAÇÃO -->
+                <div class="panel" data-fluig-state-hide="0,4">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a class="collapse-icon up" data-toggle="collapse" data-parent="#accordion"
+                                href="#collapseAprovacao">
+                                Aprovação
+                            </a>
+                        </h4>
+                    </div>
+
+                    <div class="panel-collapse collapse in" id="collapseCliente">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label for="aprova">Aprova?</label>
+                                    <select name="aprova" id="aprova" class="form-control" data-fluig-required="true"
+                                        data-fluig-write="5" data-fluig-state-valid="5">
+                                        <option value="sim">Sim</option>
+                                        <option value="nao">Não</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="dtAprovacao">Data da Aprovação</label>
+                                    <input type="date" name="dtAprovacao" id="dtAprovacao" class="form-control"
+                                        data-fluig-required="true" data-fluig-write="5" data-fluig-state-valid="5">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="motivo">Motivo</label>
+                                    <textarea class="form-control fs-no-resize" name="motivo" id="motivo" rows="6"
+                                        placeholder="Escreva o motivo..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLLAPSE: APROVAÇÃO -->
+
+            </div>
+            <!-- APROVAÇÃO -->
+
+        </form>
+    </div>
+
+</body>
+
+</html>

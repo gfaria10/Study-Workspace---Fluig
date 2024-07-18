@@ -1,0 +1,242 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="registro_despesas_capacitacao.js"></script>
+    <link type="text/css" rel="stylesheet" href="registro_despesas_capacitacao.css">
+</head>
+<body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+
+            <div class="page-header">
+                <i id="icon-title" class="fluigicon fluigicon-form icon-xl" aria-hidden="true"></i>
+                <div class="title-content">
+                    <h2 class="title">Capacitação Fluig  <small>Registro de Despesas</small></h2>
+                </div>
+            </div>
+
+            <div class="panel">
+
+                <ul class="nav nav-tabs clearfix" role="tablist">
+                    <li class="active">
+                        <a href="#despesasRealizadas"  id="abaDespesasRealizadas" role="tab" data-toggle="tab">Preenchimento de despesas
+                            realizadas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contaBancaria" id="abaContaBancaria" role="tab" data-toggle="tab">Informações da Conta Bancária
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#aprovacao" id="abaAprovacao" role="tab" data-toggle="tab">Aprovação Diretoria
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#financeiro" id="abaFinanceiro" role="tab" data-toggle="tab">Setor Financeiro
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+                    <!-- Preenchimento de despesas realizadas -->
+                    <div class="tab-pane active" id="despesasRealizadas">
+                        <div class="row">
+                            <div class="form-group col-md-3">
+                                <label for="situacao">Situação</label>
+                                <input type="text" name="situacao" id="situacao" class="form-control camposDespesas">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="dataOcorrencia">Data da Ocorrência</label>
+                                <input type="date" name="dataOcorrencia" id="dataOcorrencia" class="form-control camposDespesas">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="funcionario">Funcionário</label>
+                                <input class="camposDespesas" type="zoom" id="funcionario" name="funcionario" data-zoom="{
+                                    'displayKey':'FUNCIONARIO',
+                                    'datasetId':'ds_capacitacao_usuarios_ativos',
+                                    'maximumSelectionLength':'1',
+                                    'placeholder':'Selecione o funcionário',
+                                    'fields':[
+                                        {
+                                            'field': 'USUARIO',
+                                            'label': 'Usuário'
+                                        },
+                                        {
+                                            'field': 'FUNCIONARIO',
+                                            'label': 'Nome do Funcionário'
+                                        },
+                                        {
+                                            'field': 'EMAIL',
+                                            'label': 'Email do Funcionário'
+                                        }
+                                    ]
+                                }" />
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="nome">Nome</label>
+                                <input type="text" name="nome" id="nome" class="form-control camposDespesas">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="descricaoDespesa">Descrição da Despesa</label>
+                                <select name="descricaoDespesa" id="descricaoDespesa" class="form-control camposDespesas" onchange="tipoDespesa()">
+                                    <option value=""></option>
+                                    <option value="transporte">Transporte</option>
+                                    <option value="hospedagem">Hospedagem</option>
+                                    <option value="alimentacao">Alimentação</option>
+                                    <option value="outrosGastos">Outros Gastos</option>
+                                </select>
+                            </div>
+
+                            <!-- Se selecionar despesa com transporte, mostra a tabela pai x filho -->
+
+                            <div class="form-group col-md-5">
+                                <label for="motivo">Motivo</label>
+                                <textarea class="form-control fs-no-resize camposDespesas" name="motivo" id="motivo"
+                                    rows="6" placeholder="Escreva o motivo..."></textarea>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-field table-responsive">
+
+                                    <!-- Tabela - PAI X FILHO -->
+                                    <table class="table table-hover" tablename="listagemTransporte"
+                                        nodeletebutton="false" noaddbutton="true">
+                                        <thead>
+                                            <tr>
+                                                <th>Tipo de Transporte</th>
+                                                <th>Data</th>
+                                                <th>Origem</th>
+                                                <th>Destino</th>
+                                                <th>Total (R$)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-success" name="btnAdicionar"
+                                                    id="btnAdicionar"
+                                                    onclick="addItem('listagemTransporte')"><strong>+</strong>
+                                                    Adicionar</button>
+                                            </div>
+
+                                            <tr>
+                                                <td class="col-md-2">
+                                                    <select name="tipoTransporte" id="tipoTransporte"
+                                                        class="form-control camposDespesas">
+                                                        <option value="carro">Carro</option>
+                                                        <option value="onibus">Ônibus</option>
+                                                    </select>
+                                                </td>
+                                                <td class="col-md-2">
+                                                    <input type="date" name="dataTransporte" id="dataTransporte"
+                                                        class="form-control camposDespesas" maxlength="200">
+                                                </td>
+                                                <td class="col-md-3">
+                                                    <input type="text" name="origemTransporte" id="origemTransporte"
+                                                        class="form-control camposDespesas" maxlength="200" />
+                                                </td>
+                                                <td class="col-md-3">
+                                                    <input type="text" name="destinoTransporte" id="destinoTransporte"
+                                                        class="form-control camposDespesas" maxlength="200" />
+                                                </td>
+                                                <td class="col-md-2">
+                                                    <input type="text" name="totalTransporte" id="totalTransporte"
+                                                        class="form-control camposDespesas" maxlength="200" />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Tabela - PAI X FILHO -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Preenchimento de despesas realizadas -->
+
+                    <!-- Conta Bancária -->
+                    <div class="tab-pane" id="contaBancaria">
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label for="agencia">Agência</label>
+                                <input type="text" name="agencia" id="agencia" class="form-control camposDiretoria">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="contaCorrente">Conta Corrente</label>
+                                <input type="text" name="contaCorrente" id="contaCorrente" class="form-control camposDiretoria">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="agenciaBase">Agência Base</label>
+                                <input type="text" name="agenciaBase" id="agenciaBase" class="form-control camposDiretoria">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Conta Bancária -->
+
+                    <!-- Aprovação -->
+                    <div class="tab-pane" id="aprovacao">
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label for="aprova">Aprova?</label>
+                                <select name="aprova" id="aprova" class="form-control camposAprovacao">
+                                    <option value="sim">Sim</option>
+                                    <option value="nao">Não</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="observacoesAprova">Observações</label>
+                                <input type="text" name="observacoesAprova" id="observacoesAprova" class="form-control camposAprovacao">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Aprovação -->
+
+                    <!-- Financeiro -->
+                    <div class="tab-pane" id="financeiro">
+                        <div class="row">
+                            <div class="form-group col-md-2">
+                                <label for="dtReembolso">Data do Reembolso</label>
+                                <input type="date" name="dtReembolso" id="dtReembolso" class="form-control camposFinanceiro">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label for="observacoes">Valor Total</label>
+                                <input type="text" name="observacoes" id="observacoes" class="form-control camposFinanceiro">
+                            </div>
+
+                            <div class="form-group col-md-5">
+                                <label for="observacoesFinanc">Observações - Financeiro</label>
+                                <input type="text" name="observacoesFinanc" id="observacoesFinanc" class="form-control camposFinanceiro">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Financeiro -->
+
+                </div>
+                <!-- Tab panes -->
+            </div>
+            <!-- Panel -->
+        </form>
+    </div>
+</body>
+
+</html>

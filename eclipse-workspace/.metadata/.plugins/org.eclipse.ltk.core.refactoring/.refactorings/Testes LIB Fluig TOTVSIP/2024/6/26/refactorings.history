@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Testes LIB Fluig TOTVSIP/forms/testes_lib_totvsip/testesLIB.css&apos; to &apos;teste_lib.css&apos;" description="Rename resource &apos;testesLIB.css&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="forms/testes_lib_totvsip/testesLIB.css" name="teste_lib.css" stamp="1719509825423" updateReferences="true"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;atividades_jquery/forms/atividade_jquery_01_gabriel/atividade_jquery_01_gabriel&apos; to &apos;atividade_jquery_01_gabriel.js&apos;" description="Rename resource &apos;atividade_jquery_01_gabriel&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="forms/atividade_jquery_01_gabriel/atividade_jquery_01_gabriel" name="atividade_jquery_01_gabriel.js" stamp="1716034497763" updateReferences="true"/>
+</session>

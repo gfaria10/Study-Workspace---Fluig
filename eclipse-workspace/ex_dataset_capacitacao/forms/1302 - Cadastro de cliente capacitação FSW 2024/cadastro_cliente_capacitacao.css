@@ -1,0 +1,59 @@
+
+/* Definir valores Globais*/
+:root{
+    --cor_fundo:#f3f1f2;
+    --cor_cabecalho: #af2717;
+    --cor_titulo: white;
+}
+
+body{
+    background: var(--cor_fundo);
+    margin: 0px 0 0px !important;
+}
+.page-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--cor_cabecalho)!important;
+    padding: 10px;
+    height: 110px;
+    border-radius: 10px 10px 0 0 ;
+}
+.fluig-style-guide .page-header{
+    margin: 0px 0 30px !important;
+}
+
+
+.tab-pane fade {
+    margin-bottom: 5px !important; 
+}
+
+.logo{
+    width: 220px;
+}
+.page-header input{
+    visibility: hidden;
+}
+.title-content .title{
+    color: var(--cor_titulo);
+}
+.title-content{
+    padding: 40px;
+}
+
+.panel-body .linha{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.panel-body h4{
+    font-weight: bold !important
+}
+
+.panel-body .linha div:first-of-type{
+    margin-left: -40px;
+}
+
+
+

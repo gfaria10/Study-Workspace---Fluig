@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+    <script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script src="atividade_jquery_01_gabriel.js"></script>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+        <form name="form" role="form">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h2><i class="flaticon flaticon-form-list icon-lg" aria-hidden="true"></i> Consumo da API ViaCEP
+                    </h2>
+                </div>
+                <div class="panel-body">
+
+                    <!-- EXEMPLO CAMPO ZOOM -->
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <label for="usuarios">Selecione o usuário correspondente ao endereço</label>
+                            <input type="zoom" id="usuarios" name="usuarios" data-zoom="{
+                                'displayKey':'colleagueId',
+                                'datasetId':'colleague',
+                                'maximumSelectionLength':'1',
+                                'placeholder':'Selecione o usuário',
+                                'fields':[
+                                    {
+                                        'field':'colleagueName',
+                                        'label':'Nome'
+                                    },{
+                                        'field':'mail',
+                                        'label':'Email'
+                                    }
+                                ]
+                            }" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-2">
+                            <label for="cep">CEP</label>
+                            <div class="input-group">
+                                <input type="text" name="cep" id="cep" class="form-control">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" id="btnBuscaCEP" type="button"
+                                        onclick="consultaCEP()">Buscar</button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label for="logradouro">Logradouro</label>
+                            <input type="text" name="logradouro" id="logradouro" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" name="bairro" id="bairro" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="cidade" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="estado">Estado</label>
+                            <input type="text" name="estado" id="estado" class="form-control">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

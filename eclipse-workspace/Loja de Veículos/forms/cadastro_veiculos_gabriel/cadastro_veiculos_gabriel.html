@@ -1,0 +1,229 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css"/>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="cadastro_veiculos_gabriel.js"></script>
+</head>
+
+<body>
+<div class="fluig-style-guide">
+    <form name="form" role="form">
+
+        <h2>Capacitação Fluig - Loja de Veículos</h2>
+
+        <!-- INFOS DO VENDEDOR -->
+        <div class="panel panel-primary"
+            style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="panel-heading">
+                <h3><i class="flaticon flaticon-card-user icon-lg" aria-hidden="true"></i> Informações do Vendedor
+                </h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label for="vendedores">Selecione o vendedor</label>
+                        <input type="zoom" id="vendedores" name="vendedores" data-zoom="{
+                            'displayKey':'colleagueName',
+                            'datasetId':'colleague',
+                            'maximumSelectionLength':'1',
+                            'placeholder':'Selecione o vendedor responsável pela venda',
+                            'filterValues': '',
+                            'fields':[
+                                {
+                                    'field': 'login',
+                                    'label': 'Usuário'
+                                },
+                                {
+                                    'field': 'mail',
+                                    'label': 'Email'
+                                },
+                                {
+                                    'field': 'colleagueName',
+                                    'label': 'Nome'
+                                }
+                            ]
+                        }" />
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" class="form-control">
+                    </div>
+                    
+                    <div class="form-group col-md-2">
+                        <label for="loginUsuario">Login</label>
+                        <input type="text" name="loginUsuario" id="loginUsuario" class="form-control">
+                    </div>
+                    
+                    <div class="form-group col-md-2">
+                        <label for="cpf">CPF</label>
+                        <input type="text" name="cpf" id="cpf" class="form-control" mask="000.000.000-00">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" name="telefone" id="telefone" class="form-control"
+                            mask="(00) 00000-0000">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFOS DO VEÍCULO -->
+        <div class="panel panel-primary"
+            style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="panel-heading">
+                <h3><i class="flaticon flaticon-directions-car icon-lg" aria-hidden="true"></i> Informações do
+                    Veículo
+                </h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="form-group col-md-5">
+                        <label for="marcas">Selecione a marca</label>
+                        <input type="zoom" id="marcas" name="marcas" data-zoom="{
+                            'displayKey':'MARCA',
+                            'datasetId':'ds_marcas_veiculos',
+                            'maximumSelectionLength':'1',
+                            'placeholder':'Escolha a marca do veículo',
+                            'filterValues': '',
+                            'fields':[
+                                {
+                                    'field': 'MARCA',
+                                    'label': 'Marca'
+                                }
+                            ]
+                        }" />
+                    </div>
+
+                    <div class="form-group col-md-7">
+                        <label for="veiculos">Selecione o veículo</label>
+                        <input type="zoom" id="veiculos" name="veiculos" data-zoom="{
+                            'displayKey':'MODELO',
+                            'datasetId':'ds_veiculos',
+                            'maximumSelectionLength':'1',
+                            'placeholder':'Escolha o veículo',
+                            'filterValues': '',
+                            'fields':[
+                                {
+                                    'field': 'MARCA',
+                                    'label': 'Marca'
+                                },
+                                {
+                                    'field': 'MODELO',
+                                    'label': 'Modelo'
+                                },
+                                {
+                                    'field': 'COR',
+                                    'label': 'Cor'
+                                },
+                                {
+                                    'field': 'ANO',
+                                    'label': 'Ano'
+                                },
+                                {
+                                    'field': 'VALOR',
+                                    'label': 'Valor'
+                                }
+                            ]
+                        }" />
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="marca">Marca</label>
+                        <input type="text" name="marca" id="marca" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" name="modelo" id="modelo" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="cor">Cor</label>
+                        <input type="text" name="cor" id="cor" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="ano">Ano de Fabricação</label>
+                        <input type="text" name="ano" id="ano" class="form-control">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="valor">Valor base</label>
+                        <input type="text" name="valor" id="valor" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFOS DA VENDA -->
+        <div class="panel panel-primary"
+            style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <div class="panel-heading">
+                <h3><i class="fluigicon fluigicon-money-circle icon-lg" aria-hidden="true"></i> Informações da Venda
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="valorVenda">Valor de venda</label>
+                        <input type="text" name="valorVenda" id="valorVenda" class="form-control"
+                            mask="#00.000.000.000.000,00">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="formaPg">Forma de Pagamento</label>
+                        <select name="formaPg" id="formaPg" class="form-control" onchange="formaPgSelecionada()">
+                            <option value="1">À vista</option>
+                            <option value="2">Financiamento</option>
+                            <option value="3">Entrada + Financiamento</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2" id="inputVlrEntrada" style="display: none;">
+                        <label for="vlrEntrada">Valor de Entrada</label>
+                        <input type="text" name="vlrEntrada" id="vlrEntrada" class="form-control"
+                            mask="#00.000.000.000.000,00">
+                    </div>
+
+                    <div class="form-group col-md-2" id="inputParcelas" style="display: none;" onchange="calculaJuros()">
+                        <label for="parcelas">Qtd. Parcelas</label>
+                        <select name="parcelas" id="parcelas" class="form-control">
+                            <option value="1">12x</option>
+                            <option value="2">24x</option>
+                            <option value="3">48x</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-3" id="inputJuros" style="display: none;">
+                        <label for="vlrJuros">Valor do Juros</label>
+                        <input type="text" name="vlrJuros" id="vlrJuros" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+</body>
+
+</html>

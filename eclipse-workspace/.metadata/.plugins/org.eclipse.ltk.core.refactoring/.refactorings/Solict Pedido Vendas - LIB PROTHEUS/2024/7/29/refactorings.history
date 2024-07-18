@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;FLUIGIP.js&apos; to &apos;cadastro_complementar_fornecedor_gabriel&apos;&#x0D;&#x0A;- Original project: &apos;Solict Pedido Vendas - LIB PROTHEUS&apos;&#x0D;&#x0A;- Destination element: &apos;cadastro_complementar_fornecedor_gabriel&apos;&#x0D;&#x0A;- Original element: &apos;FLUIGIP.js&apos;" description="Copy file" element1="forms/capacitacao_lib_int_protheus/FLUIGIP.js" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1721221599895" target="/Solict Pedido Compras - Capacitacao/forms/cadastro_complementar_fornecedor_gabriel" units="0" version="1.0"/>
+</session>

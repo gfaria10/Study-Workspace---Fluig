@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ex_dataset_capacitacao/datasets/fluig IP/usuarios_papel.js&apos; to &apos;usuarios_grupo.js&apos;" description="Rename resource &apos;usuarios_papel.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="datasets/fluig IP/usuarios_papel.js" name="usuarios_grupo.js" stamp="1716834239852" updateReferences="true"/>
+</session>
